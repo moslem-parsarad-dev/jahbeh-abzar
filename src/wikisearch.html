@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>جستجو در ویکی پدیا - جعبه ابزار</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "vazir", Tahoma, sans-serif;
+            direction: rtl;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #22b1ef;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3485b7;
+        }
+
+        ::-webkit-scrollbar-thumb:active{
+            background: #2b6c8f;
+        }
+
+
+
+        @font-face {
+            font-family: "vazir";
+            src: url("asset/fonts/vazir.eot") format("eot"),
+            url("asset/fonts/vazir.ttf") format("truetype"),
+            url("asset/fonts/vazir.woff") format("woff2"),
+            url("asset/fonts/vazir.woff2") format("woff");
+        }
+        ::selection{
+            background-color: #6db4ea;
+            color: #ffffff;
+        }
+
+        body{
+            background-image: url("asset/images/car.jpg");
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #search-on-wiki{
+           position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #search-on-wiki .search-on-wiki-container{
+            padding: 2rem 1rem;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+            background: linear-gradient(rgba(138, 138, 138, 0.22), rgba(206, 206, 206, 0.55));
+            text-align: center;
+            border-radius: 1rem;
+            color: #ffffff;
+            backdrop-filter: blur(1rem);
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .button-blue{
+            background-color: rgb(47, 173, 224);
+            color: #fff;
+            font-weight: 800;
+            border-radius: 0.2rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border: none;
+            box-shadow: 0 0.2rem 1rem rgba(4, 104, 255, 0.78);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .button-blue:hover{
+            box-shadow: 0 0.2rem 1rem rgba(4, 50, 255, 0.52);
+        }
+        .button-blue:active{
+            transition: all 0.1s ease;
+            background-color: rgb(0, 98, 255);
+        }
+
+        #search-wiki{
+            width: 20rem;
+            outline: none;
+            padding: 0.5rem 0.3rem;
+            border-radius: 0.5rem;
+            border: 1px solid #1daaff;
+            transition: all 0.5s ease;
+        }
+
+        #search-wiki:focus{
+            box-shadow: 0 0 20px rgba(45, 128, 222, 0.63);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="search-on-wiki">
+        <div class="search-on-wiki-container">
+            <div class="wiki-title">
+                <h1>جستجو در ویکی پدیا</h1>
+            </div>
+            <div class="wiki-search">
+                <input id="search-wiki" type="text" placeholder="جستجو کنید..." class="vazir">
+                <button id="search-btn" type="button" class="button-blue vazir">جستجو کنید</button>
+            </div>
+            <div class="wiki-result vazir">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="asset/scripts/jquery.js"></script>
+<script>
+    $("#search-btn").click(()=>{
+        let query = $('#search-wiki').val();
+        let wikiURL = `https://api.codebazan.ir/wiki/?search=${query}`;
+        $.get(wikiURL, (data)=>{
+            console.log(data);
+            let x = data.toString();
+
+            console.log(x.search('a') != -1)
+
+            console.log(x.search("ا") != 0);
+            if(x.search("ا") !== -1){
+                $(".wiki-result").html(data);
+            }
+            else if(query== ''){
+                $(".wiki-result").html('لطفا کادر را خالی نگذارید')
+            }
+
+            else{
+                $(".wiki-result").html('لطفا از کلمات کلیدی  و درست استفاده کنید');
+            }
+
+
+
+        });
+
+    })
+
+
+    $("#search-wiki").keydown((event)=>{
+        if(event.keyCode ==  13){
+            let query = $('#search-wiki').val();
+            let wikiURL = `https://api.codebazan.ir/wiki/?search=${query}`;
+            $.get(wikiURL, (data)=>{
+                console.log(data);
+                let x = data.toString();
+    
+                console.log(x.search('a') != -1)
+    
+                console.log(x.search("ا") != 0);
+                if(x.search("ا") !== -1){
+                    $(".wiki-result").html(data);
+                }
+                else if(query== ''){
+                    $(".wiki-result").html('لطفا کادر را خالی نگذارید')
+                }
+    
+                else{
+                    $(".wiki-result").html('لطفا از کلمات کلیدی  و درست استفاده کنید');
+                }
+    
+    
+    
+            }); 
+        }
+    })
+
+
+</script>
+
+
+</html>

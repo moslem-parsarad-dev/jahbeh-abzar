@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>نمایش اوقات شرعی</title>
+    <style>
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #22b1ef;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3485b7;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #2b6c8f;
+        }
+
+        @font-face {
+            font-family: "vazir";
+            src: url("asset/fonts/vazir.eot") format("eot"),
+            url("asset/fonts/vazir.ttf") format("truetype"),
+            url("asset/fonts/vazir.woff") format("woff2"),
+            url("asset/fonts/vazir.woff2") format("woff");
+        }
+
+        ul, ol {
+            list-style-type: none;
+        }
+
+        * {
+            font-family: "vazir", Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            text-shadow: none;
+            background-color: #0aa7ca;
+            color: #ffffff;
+        }
+
+        #islamic-result {
+            height: 100%;
+            background-image: url("asset/images/car.jpg");
+            color: #ffffff;
+        }
+
+        .islamic-result-container {
+            width: 100%;
+            padding: 2rem 1rem;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+            background: linear-gradient(rgba(138, 138, 138, 0.22), rgba(138, 161, 150, 0.55));
+            text-align: center;
+            border-radius: 1rem;
+            color: #ffffff;
+            backdrop-filter: blur(2rem);
+            z-index: 1;
+
+        }
+
+        .font-weight-900 {
+            font-weight: 900;
+        }
+
+        body {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body>
+<div id="islamic-result">
+
+    <div class="islamic-result-container">
+
+        <div class="islamic-title">
+            <h3 class="vazir">اوقات شرعی</h3>
+        </div>
+
+        <div>
+            <div>
+                <ul id="time" class="list-group"></ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+<script src="asset/scripts/jquery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://prayer.aviny.com/api/prayertimes/1",
+            dataType: "json",
+            type: 'GET',
+            success: function (data) {
+                var y = '1400/10/10 - 6:28 PM';
+                var x = y.replace("PM", 'بعد از ظهر ');
+                console.log(x);
+                var todayGet = data.Today;
+                var todayReplace = todayGet.replace('PM', 'بعد از ظهر')
+                //var todayReplace = todayGet.replace('AM', 'صبح')
+                if (todayGet.search('AM') != -1) {
+                    var todayReplace = todayGet.replace('AM', 'صبح')
+                }
+
+                var GetCity = data.CityLName
+
+                var TodayCity = GetCity.replace('Tehran', 'تهران')
+
+                var GetContery = data.CountryLName
+
+                Cuntry = GetContery.replace('Iran', 'ایران')
+
+                $("#time").append("نام شهر: " + `<li class="list-group-item font-weight-900">${data.CityName}</li>` + "<br/>");
+                $("#time").append("نام کشور: " + `<li class="list-group-item font-weight-900">${data.CountryName}</li>` + "<br/>");
+                $("#time").append("امروز: " + `<li class="list-group-item font-weight-900">${todayReplace}</li>` + "<br/>");
+                $("#time").append("" + `<li class='list-group-item font-weight-900'>${data.TodayQamari}</li>` + "<br/>");
+                $("#time").append("اذان صبح: " + `<li class='list-group-item font-weight-900'>${data.Imsaak} </li>` + "<br/>");
+                $("#time").append("طلوع آفتاب: " + `<li class='list-group-item font-weight-900'>${data.Sunrise}</li>` + "<br/>");
+                $("#time").append("اذان ظهر: " + `<li class="list-group-item font-weight-900">${data.Noon}</li>` + "<br/>");
+                $("#time").append("غروب خورشید: " + `<li class="list-group-item font-weight-900">${data.Sunset}</li>` + "<br/>");
+                $("#time").append("اذان مغرب: " + `<li class="list-group-item font-weight-900">${data.Maghreb}</li>` + "<br/>");
+                $("#time").append("نیمه شب شرعی: " + `<li class='list-group-item font-weight-900'>${data.Midnight}</li>` + "<br/>");
+                $("#time").append("نام شهر: " + `<li class='list-group-item font-weight-900'>${TodayCity}</li>` + "<br/>");
+                $("#time").append("نام کشور: " + `<li class='list-group-item font-weight-900'>${Cuntry}</li>` + "<br/>");
+
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="IR-fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>نرم افزار جعبه ابزار - نرم افزاری برای همه</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/styles/hover.css">
+    <link rel="stylesheet" href="asset/styles/swiper.min.css">
+    <link rel="stylesheet" href="asset/styles/Animate.css">
+
+
+
+
+    <link rel="stylesheet" href="asset/styles/style.css">
+    <link rel="stylesheet" href="asset/styles/kamadatepicker.min.css">
+</head>
+<body class="blue-select">
+    <div id="app">
+        <embed id="click" src="" loop="true" autostart="true" width="0" height="0" style="position: absolute">
+        <div id="loading" class="lalezar">
+            <p class="green-select">صبر کنید <span class="green-select" id="typed-loading"></span></p>
+        </div>
+        
+
+        <div id="content">
+            <div id="header">
+                <header>
+                    <nav>
+                        <div class="logo">
+                            <h1 class="lalezar">جعبه ابزار</h1>
+                        </div>
+                        <div class="icon-image">
+                            <button id="chaging-background" class="button-blue"><i class="fas fa-image"></i></button>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+
+            <div id="main">
+                <div id="new">
+                   <div id="weather">
+                       <div class="weather-selects">
+                   <span>
+                       <p class="text-light vazir">
+                           شهر خود را انتخاب کنید:
+                       </p>
+                   </span>
+                           <select id="citys" class="vazir">
+                               <option class="option_city vazir">تهران</option>
+                               <option class="option_city vazir">مشهد</option>
+                               <option class="option_city vazir">اصفهان</option>
+                               <option class="option_city vazir">کرج</option>
+                               <option class="option_city vazir">شیراز</option>
+                               <option class="option_city vazir">تبریز</option>
+                               <option class="option_city vazir">قم</option>
+                               <option class="option_city vazir">اهواز</option>
+                               <option class="option_city vazir">کرمانشاه</option>
+                               <option class="option_city vazir">ارومیه</option>
+                               <option class="option_city vazir">رشت</option>
+                               <option class="option_city vazir">کرمان</option>
+                               <option class="option_city vazir">همدان</option>
+                               <option class="option_city vazir">زاهدان</option>
+                               <option class="option_city vazir">یزد</option>
+                               <option class="option_city vazir">اردبیل</option>
+                               <option class="option_city vazir">بندرعباس</option>
+                               <option class="option_city vazir">اراک</option>
+                               <option class="option_city vazir">زنجان</option>
+                               <option class="option_city vazir">سنندج</option>
+                               <option class="option_city vazir">قزوین</option>
+                               <option class="option_city vazir">خرم آباد</option>
+                               <option class="option_city vazir">گرگان</option>
+                               <option class="option_city vazir">ساری</option>
+                               <option class="option_city vazir">بجنورد</option>
+                               <option class="option_city vazir">بوشهر</option>
+                               <option class="option_city vazir">ایلام</option>
+                               <option class="option_city vazir">شهرکرد</option>
+                               <option class="option_city vazir">سمنان</option>
+                               <option class="option_city vazir">یاسوج</option>
+                           </select>
+                       </div>
+                       <div class="weather-result lalezar">
+                           <h2 id="result-offical"></h2>
+                           <span>وضعیت هوا:<span id="status-city"> </span></span>
+                       </div>
+                   </div>
+
+                    <div id="calendar">
+                        <div class="calendar-title-first">
+                            <p class="vazir">نمایش تقویم</p>
+                        </div>
+                        <div class="calendar-link">
+                            <a target="_blank" class="button-blue vazir" href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>
+                            </a>
+                        </div>
+                        <div class="calendar-title-second vazir">
+                            <p class="vazir">تاریخ امروز</p>
+                            <p class="monasebat vazir"></p>
+                        </div>
+                    </div>
+                    <div id="mono">
+                        <div class="mono-result">
+                            <p class="vazir">مناسبت های امروز</p>
+                            <p id="mono-result" class="vazir"></p>
+                            <a href="https://www.bahesab.ir/time/calendar/" class="vazir button-blue" target="_blank">نمایش تاریخ دقیق</a>
+                        </div>
+                    </div>
+                    <div id="recomanded-music">
+                        <div class="music-result">
+                            <p class="vazir">موزیک پیشنهادی امروز</p>
+                            <a href="music.html" target="_blank" class="vazir button-blue">می خواهم گوش کنم</a>
+                        </div>
+                    </div>
+                    <div id="islamic-time">
+                        <div class="islamic-result">
+                            <p class="vazir">ساعت و اوقات شرعی</p>
+                            <a href="islamic_time.html" target="_blank" class="vazir button-blue">نمایش بده</a>
+                        </div>
+                    </div>
+                    <div id="islmic-zekr">
+                        <div class="islmic-zekr-result">
+                            <p class="vazir">ذکر امروز</p>
+                            <h3 id="zekr-result" class="vazir"></h3>
+                        </div>
+                    </div>
+                    <div class="arz-price">
+                        <div class="arz-price-result">
+                            <p class="vazir">قیمت ارز</p>
+                            <h4 class="arzs vazir"></h4>
+                        </div>
+                    </div>
+                    <div class="cars-pirce">
+                        <div class="cars-price">
+                            <p class="vazir">نمایش قیمت ماشین ها</p>
+                            <h4 id="cars-result" class="vazir"></h4>
+                       </div>
+                    </div>
+                    <div id="chistan">
+                        <div class="chistan-result">
+                            <p class="vazir">چیستان</p>
+                            <h4 class="vazir" id="chistan-result-tag"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="search">
+                    <div class="search-item">
+                        <div class="searching">
+                            <input id="input-search" class="input-one vazir" type="text" placeholder="جستجو کنید...">
+                            <button id="submit-search" class="button-blue vazir">جستجو</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="important">
+                    <div id="dic">
+                        <div class="dic-result-container">
+                            <p class="vazir">لغت نامه</p>
+                            <a href="dict.html" target="_blank" class="button-blue vazir">برو به لغت نامه</a>
+                        </div>
+                    </div>
+                    <div id="list-work">
+                        <div class="list-work-result">
+                            <p class="vazir">لیست کار های شما</p>
+                            <a href="listofwork.html" target="_blank" class="button-blue vazir">برو به لیست کار ها</a>
+                        </div>
+                    </div>
+                    <div id="search-in-wiki">
+                        <div class="wiki-result">
+                            <p class="vazir">جستجو در ویکی پدیا</p>
+                            <a href="wikisearch.html" target="_blank" class="button-blue vazir">جستجو کن</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="change-image">
+            <div class="image-change-container">
+                <div class="text-image-change-hint">
+                    <p class="lalezar">پس زمینه خود را انتخاب کنید</p>
+                </div>
+                <div class="images-be-changed">
+                    <img src="asset/images/car.jpg" alt="">
+                    <img src="asset/images/ferdoosi.jpg" alt="">
+                    <img src="asset/images/emamreza.jpg" alt="">
+                    <img src="asset/images/artichet-beautiful.jpg" alt="">
+                    <img src="asset/images/purple.jpg" alt="">
+                    <img src="asset/images/tea.jpg" alt="">
+                    <img src="asset/images/masjed.jpg" alt="">
+                    <img src="asset/images/photo_rahbar.jpg" alt="">
+                    <img src="asset/images/red-tea.jpg" alt="">
+                    <img src="asset/images/iran.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="image-click-change"></div>
+
+
+
+
+</body>
+<script src="asset/scripts/jquery.js"></script>
+<script src="asset/scripts/sweetalert.js"></script>
+<script src="asset/scripts/all.min.js"></script>
+<script src="asset/scripts/typed.min.js"></script>
+<script src="asset/scripts/swiper.min.js"></script>
+<script src="asset/scripts/scripts.js"></script>
+<script src="asset/scripts/kamadatepicker.min.js"></script>
+</html>

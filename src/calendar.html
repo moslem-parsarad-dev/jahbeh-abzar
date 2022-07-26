@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>تقویم شمسی - جعبه ابزار</title>
+    <link rel="stylesheet" href="asset/styles/kamadatepicker.min.css">
+    <style>
+        @font-face {
+            font-family: "vazir";
+            src: url("asset/fonts/vazir.eot") format("eot"),
+            url("asset/fonts/vazir.ttf") format("truetype"),
+            url("asset/fonts/vazir.woff") format("woff2"),
+            url("asset/fonts/vazir.woff2") format("woff");
+        }
+        *{
+            font-family: "vazir", Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-image: url("asset/images/car.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #canlender{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            z-index : 1;
+        }
+        #canlender .calendar{
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+            background: linear-gradient(rgba(138, 138, 138, 0.22), rgba(206, 206, 206, 0.55));
+            border-radius: 1rem;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 4rem;
+            backdrop-filter: blur(1rem);
+
+        }
+        #canlender .calendar input{
+
+            outline: none;
+            padding: 0.5rem 0.3rem;
+            border-radius: 0.5rem;
+            border: 1px solid #1daaff;
+        }
+        #canlender .calendar p {
+            text-align: center;
+        }
+        #canlender input::placeholder{
+            font-family: "vazir", Tahoma, sans-serif;
+        }
+
+        #canlender input:focus{
+            box-shadow: 0 0 20px rgba(45, 128, 222, 0.63);
+        }
+
+
+        ::selection{
+
+            background-color: #00a6ff;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="canlender">
+    <div class="calendar">
+        <h4>روز خود را اتنخاب کنید</h4>
+        <input type="text" id="test-date-id" style="direction: rtl">
+    </div>
+</div>
+</body>
+<script src="asset/scripts/jquery.js"></script>
+<script src="asset/scripts/kamadatepicker.min.js"></script>
+<script>
+    let options = {
+        placeholder: 'تاریخ',
+        twodigit: false,
+        closeAfterSelect: false,
+        nextButtonIcon: 'asset/images/next_button.png',
+        previousButtonIcon: 'asset/images/prev_button.png',
+        buttonsColor: 'red',
+        forceFarsiDigits: true,
+        markToday: true,
+        markHolidays : true,
+        highlightSelectedDay: true,
+        sync: false,
+    };
+    kamaDatepicker('test-date-id', options);
+</script>
+</html>
